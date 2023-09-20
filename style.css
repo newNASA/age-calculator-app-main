@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    /* border: 1px solid red; */
+}
+
+:root {
+    --bg-color: hsl(0, 0%, 94%);
+    --container-bg: hsl(0, 0%, 100%);
+    --label-color: hsl(0, 1%, 44%);
+    --input-border-color: hsl(0, 0%, 86%);
+    --input-active-color: hsl(259, 100%, 65%);
+    --button-black:hsl(0, 0%, 8%);
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 900px;
+    padding: 56px;
+    padding-right: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--container-bg);
+    border-radius: 1.5rem 1.5rem 12.5rem 1.5rem;
+}
+
+.top {
+    display: flex;
+}
+
+.top div{
+    margin-right: 35px;
+}
+
+label {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: var(--label-color);
+    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+input {
+    outline: none;
+    width: 160px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid var(--input-border-color);
+    font-size: 32px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input:focus{
+    border: 1px solid var(--input-active-color);
+}
+
+.center{
+    display: flex;
+    align-items: center;
+}
+
+hr{
+    width: 600px;
+    margin-top: 50px;
+}
+
+.center button{
+    background-color:var(--input-active-color);
+    outline: none;
+    border: transparent;
+    border-radius: 50%;
+    padding: 15px;
+    margin-top: 45px;
+}
+
+.center button:hover{
+    background-color: var(--button-black);
+    cursor: pointer;
+}
