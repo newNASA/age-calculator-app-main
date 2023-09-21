@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    /* border: 1px solid red; */
 }
 
 :root {
@@ -13,6 +12,7 @@
     --input-border-color: hsl(0, 0%, 86%);
     --input-active-color: hsl(259, 100%, 65%);
     --button-black:hsl(0, 0%, 8%);
+    --error:hsl(0, 100%, 67%);
 }
 
 body {
@@ -51,6 +51,11 @@ label {
     letter-spacing: 2px;
 }
 
+span{
+    font-size: 12px;
+    display: block;
+}
+
 input {
     outline: none;
     width: 160px;
@@ -61,6 +66,7 @@ input {
     font-size: 32px;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
 }
 
 input:focus{

@@ -4,15 +4,75 @@ const year = document.querySelector("#year");
 const days = document.querySelector(".days");
 const months = document.querySelector(".months");
 const years = document.querySelector(".years");
+const label__day = document.querySelector(".label__day");
+const label__month = document.querySelector(".label__month");
+const label__year = document.querySelector(".label__year");
+const dayspan = document.querySelector(".dayspan");
+const monthspan = document.querySelector(".monthspan");
+const yearspan = document.querySelector(".yearspan");
 const button = document.querySelector("button");
 
 function buttonClicked() {
     let dayValue = parseInt(day.value);
     let monthValue = parseInt(month.value) - 1;
     let yearValue = parseInt(year.value);
+    console.log(monthValue);
+    const check_month = [3, 5, 8, 10]
+
+    if (!day.value) {
+        day.style.border = "1px solid var(--error)";
+        label__day.style.color = "var(--error)";
+        dayspan.style.color = "var(--error)";
+        dayspan.textContent = "This field is required"
+    } else if (check_month.includes(monthValue) && dayValue >= 31 || monthValue == 1 && dayValue > 28) {
+        dayspan.textContent = "Must be a valid date"
+
+        year.style.border = "1px solid var(--error)";
+        label__year.style.color = "var(--error)";
+        yearspan.style.color = "var(--error)";
+        month.style.border = "1px solid var(--error)";
+        label__month.style.color = "var(--error)";
+        monthspan.style.color = "var(--error)";
+        day.style.border = "1px solid var(--error)";
+        label__day.style.color = "var(--error)";
+        dayspan.style.color = "var(--error)";
+        return
+    }else {
+        day.style.border = "1px solid black";
+        dayspan.style.color = "initial";
+        label__day.style.color = "var(--label-color)";
+        dayspan.textContent = ""
+    }
+
+    if (!month.value) {
+        month.style.border = "1px solid var(--error)";
+        label__month.style.color = "var(--error)";
+        monthspan.style.color = "var(--error)";
+        monthspan.textContent = "This field is required";
+    } else {
+        month.style.border = "1px solid black";
+        monthspan.style.color = "initial";
+        label__month.style.color = "var(--label-color)";
+        monthspan.textContent = ""
+    }
+
+    if (!year.value) {
+        year.style.border = "1px solid var(--error)";
+        label__year.style.color = "var(--error)";
+        yearspan.style.color = "var(--error)";
+        yearspan.textContent = "This field is required";
+    } else {
+        year.style.border = "1px solid black";
+        yearspan.style.color = "initial";
+        label__year.style.color = "var(--label-color)";
+        yearspan.textContent = ""
+    }
+
+    const formattedDay = dayValue < 10 ? `0${dayValue}` : dayValue;
+    const formattedMonth = (monthValue + 1) < 10 ? `0${monthValue + 1}` : monthValue + 1;
 
     const currentDate = new Date();
-    const enteredDate = new Date(`${yearValue}-${monthValue + 1}-${dayValue}`);
+    const enteredDate = new Date(`${yearValue}-${formattedMonth}-${formattedDay}`);
 
     const timeDifferenceInMilliseconds = currentDate - enteredDate;
 
@@ -20,12 +80,13 @@ function buttonClicked() {
     const daysDifference = Math.floor(timeDifferenceInMilliseconds / millisecondsInADay);
 
     const yearsDifference = Math.floor(daysDifference / 365);
-    const monthsDifference = Math.floor((daysDifference % 365) / 30); 
-    const remainingDays = daysDifference % 30; 
+    const monthsDifference = Math.floor((daysDifference % 365) / 30);
+    const remainingDays = daysDifference % 30;
 
-    years.textContent = yearsDifference
-    months.textContent = monthsDifference
-    days.textContent = remainingDays
+    years.textContent = yearsDifference;
+    months.textContent = monthsDifference;
+    days.textContent = remainingDays;
 }
 
 button.addEventListener('click', buttonClicked);
+
