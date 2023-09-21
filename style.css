@@ -30,7 +30,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--container-bg);
-    border-radius: 1.5rem 1.5rem 12.5rem 1.5rem;
+    border-radius: 2.5rem 2.5rem 15rem 2.5rem;
 }
 
 .top {
@@ -89,4 +89,18 @@ hr{
 .center button:hover{
     background-color: var(--button-black);
     cursor: pointer;
+}
+
+.bottom{
+    font-size: 6.5rem;
+    font-weight:800;
+    line-height: 120px;
+}
+
+.bottom p{
+    display: inline-block;
+}
+
+.bottom .info{
+    color: var(--input-active-color)
 }
