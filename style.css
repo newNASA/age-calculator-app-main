@@ -5,7 +5,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-:root {
+:root[data-theme="light"]{
     --bg-color: hsl(0, 0%, 94%);
     --container-bg: hsl(0, 0%, 100%);
     --label-color: hsl(0, 1%, 44%);
@@ -13,6 +13,38 @@
     --input-active-color: hsl(259, 100%, 65%);
     --button-black: hsl(0, 0%, 8%);
     --error: hsl(0, 100%, 67%);
+    --bottom-p:#000;
+}
+
+:root[data-theme="dark"]{
+    --label-color: #fff;
+    --bg-color:#101820FF;
+    --container-bg: #003950FF;
+    --input-border-color:hsl(0, 0%, 86%) ;
+    --input-active-color: hsl(259, 100%, 65%);
+    --bottom-p:#fff;
+    --button-black: hsl(0, 0%, 8%);
+    --error: hsl(0, 100%, 67%);
+}
+.theme-toggle-button {
+    position: absolute;
+    z-index: 1;
+    right: 12px;
+    top: 12px;
+    padding: 4px 12px;
+    border: 1px solid ;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: normal;
+    background-color: transparent;
+    color: var(--input-active-color);
+    cursor: pointer;
+    border:1px solid var(--input-active-color);
+}
+
+.theme-toggle-button:hover{
+    background-color: var(--input-active-color);
+    color:var(--bg-color);
 }
 
 body {
@@ -69,6 +101,8 @@ input {
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
+    color: var(--label-color);
+    background-color: var(--container-bg);
 }
 
 input:focus {
@@ -112,6 +146,7 @@ input:focus {
 
 .bottom p {
     display: inline-block;
+    color: var(--bottom-p);
 }
 
 .bottom .info {

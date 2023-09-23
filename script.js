@@ -69,7 +69,7 @@ function buttonClicked() {
             day.style.border = "1px solid var(--error)";
             label__day.style.color = "var(--error)";
             dayspan.style.color = "var(--error)";
-        } else if (check_month2.includes(monthValue) && dayValue > 31) {
+        } else if (check_month2.includes(monthValue) && dayValue > 31  || dayValue > 31) {
             dayspan.textContent = "Must be valid day"
             day.style.border = "1px solid var(--error)";
             label__day.style.color = "var(--error)";
@@ -121,3 +121,20 @@ function buttonClicked() {
 }
 
 button.addEventListener('click', buttonClicked);
+
+const elThemeTogglerButton = document.querySelector('.theme-toggle-button');
+
+function switchTheme() {
+    const elRoot = document.documentElement
+    let dataTheme = elRoot.getAttribute('data-theme');
+
+    let newTheme = (dataTheme === 'light') ? 'dark' : 'light';
+
+    elRoot.setAttribute('data-theme', newTheme);
+
+    localStorage.setItem('theme', newTheme);
+}
+
+if (elThemeTogglerButton) {
+    elThemeTogglerButton.addEventListener('click', switchTheme);
+}
